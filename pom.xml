@@ -4,9 +4,19 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.codehaus.mojo</groupId>
    <artifactId>pythoncode</artifactId>
-   <version>09.11</version>
+   <version>09.12</version>
    <packaging>jar</packaging>
    
+   <repositories>
+   <repository>
+			<id>internal</id>
+			<name>Internal Repository</name>
+			<url>http://localhost:8081/nexus</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+    </repositories>
    <build>
    <directory>${project.basedir}/target</directory>
     <finalName>${project.artifactId}-${project.version}</finalName>
@@ -18,10 +28,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>/Users/saiprasanthrajavarapu/Documents/devops/exercise/src/</source>
-          <target>/Users/saiprasanthrajavarapu/Documents/devops/exercise/target</target>
+          <executable>/usr/local/bin/python3.5</executable>
         </configuration>
       </plugin>
+      
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -52,6 +62,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 <outputDirectory>lib</outputDirectory>
             </configuration>
         </plugin>
-  </plugins>
- </build> 
+        </plugins>
+   </build> 
+   <distributionManagement>
+    <repository>
+      <id>internal</id>
+      <name>Internal Repository-releases</name>
+      <url>
+      http://localhost:8081/repository/abc/
+	  </url>
+    </repository>
+    <snapshotRepository>
+      <id>internal</id>
+      <name>Internal Repository-snapshots</name>
+     <url>http://localhost:8081/repository/xyz/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
