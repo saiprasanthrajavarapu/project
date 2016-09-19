@@ -69,13 +69,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <id>internal</id>
       <name>Internal Repository-releases</name>
       <url>
-      http://localhost:8081/repository/abc/
+      http://localhost:8081/repository
 	  </url>
     </repository>
     <snapshotRepository>
       <id>internal</id>
       <name>Internal Repository-snapshots</name>
-     <url>http://localhost:8081/repository/xyz/</url>
+     <url>http://localhost:8081/repository</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
